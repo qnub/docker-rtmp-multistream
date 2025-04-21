@@ -1,4 +1,4 @@
-<center><img src="thumbnail.png" alt="docker-rtmp-multistream" width="400"/></center>
+<center><img src="thumbnail.png" alt="docker-rtmp-multistream"/></center>
 
 # JacobSanford/docker-rtmp-multistream
 This is a lightweight nginx-based RTMP relay/encoder.
