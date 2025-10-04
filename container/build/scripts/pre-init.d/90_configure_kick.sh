@@ -9,6 +9,7 @@ sed -i "s|\#include $NGINX_CONFD_DIR/transformers/twitch.conf|include $NGINX_CON
 
 # App
 sed -i "s|KICK_KEY|$KICK_KEY|g" "${NGINX_CONFD_DIR}/apps/kick.conf"
+sed -i "s|KICK_SERVER|$KICK_SERVER|g" "${NGINX_CONFD_DIR}/apps/kick.conf"
 
 /scripts/enableService.sh kick
 echo "Kick configuration complete, and service enabled."
