@@ -1,9 +1,14 @@
 # Quick Start Guide
-This guide serves as a quick start for setting up the relay and streaming to Twitch and YouTube. For more detailed information, visit the [full documentation](README.md) page.
+This guide serves as a quick start for setting up the relay and streaming to YouTube with high quality and transcode to Twitch and/or KICK. For more detailed information, visit the [full documentation](README.md) page.
 
 ## 1. Configure Streams
+On any supporting platform configure stream parameters.
+
 ### Twitch
 Open your [Twitch dashboard](https://dashboard.twitch.tv) and click on 'Stream Manager' to configure your stream details.
+
+### KICK
+Open your [KICK dashboard](https://dashboard.kick.com) and click on 'Stream' to configure your stream details.
 
 ### YouTube
 Open your [YouTube dashboard](https://studio.youtube.com) and click on 'Go Live' to configure your stream details.
@@ -11,12 +16,12 @@ Open your [YouTube dashboard](https://studio.youtube.com) and click on 'Go Live'
 ## 2. Relay PC Setup
 1. ```git clone git@github.com:JacobSanford/docker-rtmp-multistream.git```
 2. ```cd docker-rtmp-multistream```
-3. Edit the `env/relay.env` file:
-   1. Add your Twitch and YouTube keys.
-   2. Configure stream quality settings as needed. For more information, see the specific documentation for [Twitch](services/twitch.md) and [Youtube](services/youtube.md), as well as [Quality Considerations](quality.md).
+3. Copy the `env/relay.env` file to `env/.env`:
+   1. Add any of required keys: Twitch, KICK, YouTube, etc.
+   2. Configure stream quality settings as needed. For more information, see the specific documentation for [Tranbscode](services/transcode.md), as well as [Quality Considerations](quality.md).
 4. Execute ```./start.sh```
 
-The relay is now ready to receive video from your streaming software. To shut down the service, use `CTRL-C`.
+The relay is now ready to receive video from your streaming software. It will work always and start aurtomatically when docker service starts. To shut down the service, run command `docker compose down`.
 
 ## 3. Gaming PC Setup
 ### a. When Using OBS Studio

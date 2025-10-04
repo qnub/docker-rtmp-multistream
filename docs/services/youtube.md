@@ -1,6 +1,6 @@
 # Service: YouTube
 ## Description
-The relay can stream to YouTube. To enable this feature, set the `YOUTUBE_KEY` environment variable in the `env/relay.env` file to the stream key provided by YouTube.
+The relay can stream to YouTube. To enable this feature, set the `YOUTUBE_KEY` environment variable in the `env/.env` file to the stream key provided by YouTube.
 
 ## Configuration
 The YouTube service can be configured by setting the following environment variables:

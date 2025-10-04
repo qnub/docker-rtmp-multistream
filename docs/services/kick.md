@@ -1,12 +1,12 @@
-# Service: Twitch
+# Service: KICK
 ## Description
-The relay can stream to Twitch. To enable this feature, set the `TWITCH_KEY` environment variable in the `env/.env` file to the stream key provided by Twitch.
+The relay can stream to Twitch. To enable this feature, set the `KICK_KEY` environment variable in the `env/.env` file to the stream key provided by Twitch.
 
 ## Configuration
 The Twitch service can be configured by setting the following environment variables:
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `TWITCH_KEY` | The stream key provided by Twitch. | `` |
+| `KICK_KEY` | The stream key provided by Twitch. | `` |
 
 ## Stream Quality
 As with all services, the quality of the YouTube stream is determined by the bitrate of the video and audio streams. Please see the [Performance and Quality](../quality.md) document for a detailed discussion.

@@ -14,7 +14,3 @@ if [ ! -f "$SERVICE_APP_FILE" ]; then
 fi
 
 sed -i "s|\#include $SERVICE_APP_FILE|include $SERVICE_APP_FILE|g" "$NGINX_APP_CONF_FILE"
-
-if [ -f "$SERVICE_TRANSFORMER_FILE" ]; then
-  sed -i "s|\#include $SERVICE_TRANSFORMER_FILE|include $SERVICE_TRANSFORMER_FILE|g" "$NGINX_APP_CONF_FILE"
-fi
