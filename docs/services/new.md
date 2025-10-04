@@ -4,7 +4,7 @@ To add a new, unsupported streaming service:
 
 1. Create new configuration file(s) in the `container/build/scripts/pre-init.d` and `container/build/conf/nginx/http.d/apps|ransformers` directories.
 2. Add any necessary new environment variables to the `container/Dockerfile` and `env/relay.env` files. Ensure secrets such as stream keys and usernames are initialized as empty strings.
-3. Add the new service to the `app.conf` file and comment it out. Add transcodable configs to `transcode` app (as Twitch) and not transcodable to `relay` app (as YouTube).
+3. Add the new service to the `app.conf` file and comment it out. Add transcodable configs to `transcoded` app (as Twitch) and not transcodable to `relay` app (as YouTube).
 
 For services which requires transcoding you can use next files as example:
    - `container/build/scripts/pre-init.d/90_configure_twitch.sh`
