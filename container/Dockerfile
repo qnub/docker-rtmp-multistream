@@ -29,6 +29,6 @@ RUN apk --no-cache add nginx-mod-rtmp ffmpeg && \
   $RSYNC_MOVE /build/conf/nginx/nginx.conf "$NGINX_CONF_FILE" && \
   $RSYNC_MOVE /build/conf/nginx/http.d/ "$NGINX_CONFD_DIR/"
 
-RUN chmod a+x -r /scripts
+RUN chmod a+x -R /scripts
 
 EXPOSE 1935
