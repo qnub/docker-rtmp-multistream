@@ -3,9 +3,9 @@ services:
     build:
       context: container
       dockerfile: Dockerfile
-      image: multistream-relay:${NGINX_CONTAINER_VERSION}
       args:
         NGINX_CONTAINER_VERSION: ${NGINX_CONTAINER_VERSION}
+    image: nginx/multistream-relay:${NGINX_CONTAINER_VERSION}
     restart: always
     container_name: multistream-relay
     ports:
