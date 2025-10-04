@@ -27,8 +27,8 @@ The relay is now ready to receive video from your streaming software. It will wo
 ### a. When Using OBS Studio
 #### Stream Settings
 * ```Service```: Custom
-* ```Server```: rtmp://192.168.2.22:1935/relay
-  * Where 192.168.2.22 corresponds to the relay PC's actual IP address.
+* ```Server```: rtmp://192.168.2.22:1935/relay-<RELAY_SECRET>
+  * Where 192.168.2.22 corresponds to the relay PC's actual IP address and `<RELAY_SECRET>` value of `RELAY_SECRET` from `env/.env`.
 * ```Stream Key```: Enter an identifer for your stream. This key is only used to identify your stream on the relay server. For example, `myStream`. It is unrelated to and should not match your Twitch or YouTube stream keys.
 * ```Use Authentication```: Unchecked.
 
