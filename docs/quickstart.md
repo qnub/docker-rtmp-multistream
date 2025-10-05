@@ -19,7 +19,7 @@ Open your [YouTube dashboard](https://studio.youtube.com) and click on 'Go Live'
 3. Copy the `env/relay.env` file to `env/.env`:
    1. Set `RELAY_SECRET` to some unique string to secure this relay server from others. You can use https://www.uuidgenerator.net/ to create safe unique string.
    2. Add any of required keys: Twitch, KICK, YouTube, etc and/or change URLs. URL should not ends with `/` and add `/app` at the ned of KICK URL if it not already there.
-   3. Configure stream quality settings as needed. For more information, see the specific documentation for [Tranbscode](services/transcode.md), as well as [Quality Considerations](quality.md).
+   3. Configure stream quality settings as needed. For more information, see the specific documentation for [Transcode](services/transcode.md), as well as [Quality Considerations](quality.md).
 4. Execute ```./start.sh```
 
 The relay is now ready to receive video from your streaming software. It will work always and start aurtomatically when docker service starts. 

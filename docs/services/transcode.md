@@ -1,4 +1,4 @@
-# Service: Twitch
+# Service: transcode
 ## Description
 The relay can trascode stream for low performace platforms like Twitch/Kick/etc. Enabling those services automatically enable transcoding with parametes configured as described below. despite of number of services which is requires transcoding - only single transcoding process executes for all of them and result just translates for all. If required - fix settings in `env/.env` file accordingly. By default it configured for 1080p60 with 8100kbps. If you see no stream on platform try to lower `TRANSCODE_KBITS_PER_VIDEO_FRAME` value according to recomedations below.
 
