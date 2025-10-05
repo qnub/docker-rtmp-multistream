@@ -5,7 +5,7 @@ if [ -z "$KICK_KEY" ]; then
 fi
 
 # Enable transcode
-sed -i "s|\#include $NGINX_CONFD_DIR/transformers/twitch.conf|include $NGINX_CONFD_DIR/transformers/twitch.conf|g" "$NGINX_APP_CONF_FILE"
+sed -i "s|\#include $NGINX_CONFD_DIR/transformers/transcode.conf|include $NGINX_CONFD_DIR/transformers/transcode.conf|g" "$NGINX_APP_CONF_FILE"
 
 # App
 sed -i "s|KICK_KEY|$KICK_KEY|g" "${NGINX_CONFD_DIR}/apps/kick.conf"
