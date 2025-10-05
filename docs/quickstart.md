@@ -22,7 +22,13 @@ Open your [YouTube dashboard](https://studio.youtube.com) and click on 'Go Live'
    3. Configure stream quality settings as needed. For more information, see the specific documentation for [Tranbscode](services/transcode.md), as well as [Quality Considerations](quality.md).
 4. Execute ```./start.sh```
 
-The relay is now ready to receive video from your streaming software. It will work always and start aurtomatically when docker service starts. To shut down the service, run command `docker compose down`.
+The relay is now ready to receive video from your streaming software. It will work always and start aurtomatically when docker service starts. 
+
+To apply changes from `env/.env` run command `./reload.sh`. 
+
+To update code run command `./update.sh`.
+
+To shut down the service, run command `./disable.sh`.
 
 ## 3. Gaming PC Setup
 ### a. When Using OBS Studio
