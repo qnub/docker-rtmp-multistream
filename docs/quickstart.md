@@ -34,7 +34,9 @@ To shut down the service, run command `./disable.sh`.
 ### a. When Using OBS Studio
 #### Stream Settings
 * ```Service```: Custom
-* ```Server```: rtmp://192.168.2.22:1935/relay-<RELAY_SECRET>
+* ```Server```: 
+  - `rtmp://192.168.2.22:1935/relay-<RELAY_SECRET>` - for direct relay without transcoding (if you prefer transcode on your own PC)
+  - `rtmp://192.168.2.22:1935/transcode-<RELAY_SECRET>` - for relay with transcoding
   * Where 192.168.2.22 corresponds to the relay PC's actual IP address and `<RELAY_SECRET>` value of `RELAY_SECRET` from `env/.env`.
 * ```Stream Key```: Enter an identifer for your stream. This key is only used to identify your stream on the relay server. For example, `myStream`. It is unrelated to and should not match your Twitch or YouTube stream keys.
 * ```Use Authentication```: Unchecked.
