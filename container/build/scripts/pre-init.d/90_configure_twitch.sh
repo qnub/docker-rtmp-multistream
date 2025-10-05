@@ -8,6 +8,7 @@ fi
 sed -i "s|\#include $NGINX_CONFD_DIR/transformers/transcode.conf|include $NGINX_CONFD_DIR/transformers/transcode.conf|g" "$NGINX_APP_CONF_FILE"
 
 # App
+sed -i "s|TWITCH_URL|$TWITCH_URL|g" "${NGINX_CONFD_DIR}/apps/twitch.conf"
 sed -i "s|TWITCH_KEY|$TWITCH_KEY|g" "${NGINX_CONFD_DIR}/apps/twitch.conf"
 
 /scripts/enableService.sh twitch

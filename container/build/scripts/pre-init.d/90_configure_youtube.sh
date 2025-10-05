@@ -4,6 +4,7 @@ if [ -z "$YOUTUBE_KEY" ]; then
   exit 0
 fi
 
+sed -i "s|YOUTUBE_URL|$YOUTUBE_URL|g" "${NGINX_CONFD_DIR}/apps/youtube.conf"
 sed -i "s|YOUTUBE_KEY|$YOUTUBE_KEY|g" "${NGINX_CONFD_DIR}/apps/youtube.conf"
 
 /scripts/enableService.sh youtube
