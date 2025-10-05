@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 SERVICE=$1
-SERVICE_TRANSFORMER_FILE="$NGINX_CONFD_DIR/transformers/$SERVICE.conf"
 SERVICE_APP_FILE="$NGINX_CONFD_DIR/apps/$SERVICE.conf"
 
 if [ -z "$SERVICE" ]; then
