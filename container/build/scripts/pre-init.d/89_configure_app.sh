@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+sed -i "s|NGINX_CONFD_DIR|$NGINX_CONFD_DIR|g" "${NGINX_APP_CONF_FILE}"
+sed -i "s|RELAY_SECRET|$RELAY_SECRET|g" "${NGINX_APP_CONF_FILE}"

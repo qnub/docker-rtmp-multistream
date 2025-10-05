@@ -1,66 +1,31 @@
-<center><img src="thumbnail.png" alt="docker-rtmp-multistream" width="400"/></center>
+<center><img src="thumbnail.png" alt="docker-rtmp-multistream"/></center>
 
-# JacobSanford/docker-rtmp-multistream
-A lightweight docker-based nginx based RTMP relay/encoder for streaming simultaneously to multiple services. YouTube and Twitch are configured by default.
+# qnub/docker-rtmp-multistream
+This is a lightweight nginx-based RTMP relay/encoder forked from [JacobSanford/docker-rtmp-multistream](https://github.com/JacobSanford/docker-rtmp-multistream).
 
-## Requirements
-### Operating System
-- **Supported OS**: Linux is the officially supported operating system. While it may be possible to deploy and develop on OSX, it is not officially supported.
+This version supports single treanscoding process which transalate transcoding result to many platforms. So it's lower server loading during translation.
 
-### Networking
+<center><img src="docker-rtmp-multistream-diag.png" alt="docker-rtmp-multistream-diag"/></center>
 
-- **HTTP/HTTPS Requests**: The docker image build process requires outbound HTTP and HTTPS requests.
-- **RTMP Requests**: Video is relayed through RTMP requests.
+It is intended to complement traditional streaming software (OBS, etc.) by providing a single endpoint that relays the stream simultaneously to multiple services (with transcoding if required), and archives it to a local disk.
 
-Both types of requests must not be blocked by your OS, network, or ISP. If you use a proxy server to connect to the web, ensure it accommodates the above requirements.
+This project works best if deployed on a dedicated PC, separate from the one running your streaming software.
 
-### Prerequisites
-Ensure the following packages are installed and configured for the current user:
+[Prerequisites](docs/requirements.md) | [Quick Start Guide](docs/quickstart.md) | [Documentation](docs/README.md)
 
-- **Docker**: Follow the [installation guide](https://docs.docker.com/install/).
-- **Docker Compose**: Follow the [installation guide](https://docs.docker.com/compose/install/).
+## Supported Streaming Services
+* KICK: [Advanced Twitch Configuration](docs/services/kick.md)
+* Twitch: [Advanced Twitch Configuration](docs/services/twitch.md)
+* YouTube: [Advanced YouTube Configuration](docs/services/youtube.md)
+* Archive (local disk): [Advanced Local Archive Configuration](docs/services/archive.md)
 
-## Setup and Use
-### Configuration
+New/Additional services can easily be added. Please see the [Adding New Services](docs/services/new.md) documentation.
 
-1. Navigate to the `env/nginx.env` file.
-2. Add your Twitch and YouTube keys.
-3. Configure stream quality settings as needed.
+## Issues
+Please report any issues or bugs you encounter by opening a new issue via the [Issues tab](https://github.com/qnub/docker-rtmp-multistream/issues).
 
-### Starting the Service
-Execute the following command in your terminal:
-
-```
-./start.sh
-```
-
-To shut down the service, use `CTRL-C`.
-
-## OBS Setup
-### Settings
-#### Streaming
-* ```Service```: Custom
-* ```Server```: rtmp://192.168.2.22:1935/live
-  * Where 192.168.2.22 corresponds to the relay PC's actual IP address.
-
-#### Output
-* ```Output Mode```: Advanced
-* ```Encoder```: If you have a modern NVidia card, use NVIDIA NVENC H.264. Otherwise, use CPU encoding with x264.
-* ```Rate Control```: CBR
-* ```Bitrate```: 20000. Set the bitrate to as large as a value as possible allowed by your network/bandwidth. See below!
-* ```Keyframe Interval```: 2
-
-## Further Considerations
-
-- **Output Bitrate**: YouTube reprocesses every video it receives, including live streams. This means that streams which look fine at lower bitrates on platforms like Twitch might not look as good on YouTube after it re-encodes them. To ensure the best quality on YouTube, set the bitrate to the highest value your network bandwidth can support.
-- **CPU Requirements**: Encoding, especially for gaming streams, is CPU-intensive. Consider using a dedicated encoder PC.
-- **Optimal Settings Guide**: For detailed settings recommendations, refer to NVidia's [Broadcasting Guide](https://www.nvidia.com/en-us/geforce/guides/broadcasting-guide/).
-
-
-## Author / Contributors
-This application was created by the following humans:
-
-<a href="https://github.com/JacobSanford"><img src="https://avatars.githubusercontent.com/u/244894?v=3" title="Jacob Sanford" width="128" height="128"></a>
+## Contributions
+Contributions / Pull requests are welcome!
 
 ## License
 MIT

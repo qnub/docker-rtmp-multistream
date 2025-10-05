@@ -1,0 +1,37 @@
+ARG NGINX_CONTAINER_VERSION=3.18.x
+
+FROM ghcr.io/unb-libraries/nginx:$NGINX_CONTAINER_VERSION
+
+ENV RELAY_SECRET=""
+
+ENV KICK_KEY=""
+ENV KICK_URL=""
+
+ENV TWITCH_KEY=""
+ENV TWITCH_URL=""
+
+ENV YOUTUBE_KEY=""
+ENV YOUTUBE_URL=""
+
+ENV ARCHIVE_PATH=""
+ENV ARCHIVE_SUFFIX=mp4
+
+ENV TRANSCODE_AUDIO_BITRATE=160k
+ENV TRANSCODE_CODEC=libx264
+ENV TRANSCODE_FFMPEG_THREADS=0
+ENV TRANSCODE_FPS=60
+ENV TRANSCODE_HEIGHT=1080
+ENV TRANSCODE_KBITS_PER_VIDEO_FRAME=135
+ENV TRANSCODE_X264_PRESET=medium
+
+COPY build /build
+
+RUN apk --no-cache add nginx-mod-rtmp ffmpeg && \
+  rm -rf "$NGINX_CONFD_DIR/daemon" "$NGINX_CONFD_DIR/server" && \
+  $RSYNC_MOVE /build/scripts/ /scripts/ && \
+  $RSYNC_MOVE /build/conf/nginx/nginx.conf "$NGINX_CONF_FILE" && \
+  $RSYNC_MOVE /build/conf/nginx/http.d/ "$NGINX_CONFD_DIR/"
+
+RUN chmod a+x -R /scripts
+
+EXPOSE 1935

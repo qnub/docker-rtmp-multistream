@@ -1,8 +1,14 @@
 services:
   relay:
     build:
-      context: .
+      context: container
+      dockerfile: Dockerfile
+      args:
+        NGINX_CONTAINER_VERSION: ${NGINX_CONTAINER_VERSION}
+    image: nginx/multistream-relay:${NGINX_CONTAINER_VERSION}
+    restart: always
+    container_name: multistream-relay
     ports:
-      - "1935:1935"
+      - 1935:1935
     env_file:
-      - ./env/nginx.env
+      - ./env/.env
